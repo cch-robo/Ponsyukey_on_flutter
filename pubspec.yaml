@@ -34,7 +34,15 @@ dependencies:
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
+  # unit test ライブラリ （test()関数を利用する、様々な単体テストを支援するためのパッケージ）
+  test: any
+
+  # widget test ライブラリ （testWidgets()関数を利用する、Widget 単体テストを支援するためのパッケージ）
   flutter_test:
+    sdk: flutter
+
+  # integration test ライブラリ （test()関数を利用する、アプリを起動して自動操作による挙動確認テスト⇒自動挙動確認テストを支援するためのパッケージ）
+  flutter_driver:
     sdk: flutter
 
 # For information on the generic Dart part of this file, see the

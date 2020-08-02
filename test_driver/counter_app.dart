@@ -1,40 +1,28 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+/// counter_app 関連の integration test （自動挙動確認テスト）についての説明
+/// counter_app.dart と counter_app_run.dart と counter_app_run_test は、
+/// 結合テストのためのトリオとなるサンプルコード・ファイルです。
+///
+/// counter_app.dart     ⇒ カウンタアプリ本体
+/// counter_app_run.dart ⇒ カウンタアプリのランチャーコード（アプリを自動挙動確認テストとして起動する）
+/// counter_app_run_test ⇒ カウンタアプリの実働挙動確認テストコード
+///
+/// プロジェクト・ディレクトリ内で、以下を実行すると自動挙動確認テストが実行されます。
+/// $ flutter drive --target=test_driver/counter_app_run.dart
+///
+/// 【参照】
+///   An introduction to integration testing
+///   https://flutter.dev/docs/cookbook/testing/integration/introduction
+///
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
-// import 'package:Ponsyukey_on_flutter/main.dart';
-
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Counter App',
-      home: MyHomePage(title: 'Counter App Home Page'),
+      home: MyHomePage(key: Key('page'), title: 'Counter App Home Page'),
     );
   }
 }
